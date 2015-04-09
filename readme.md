@@ -14,9 +14,9 @@
 * Minor rev each day
 
 ###Next Steps:
-Setup grunt
-Create an ftp task to sync the dist folder
-Create a pageres task to capture progress visually daily.
+* Setup grunt
+* Create an ftp task to sync the dist folder
+* Create a pageres task to capture progress visually daily.
 
 ###Timespent:
 1hr
