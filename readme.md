@@ -29,6 +29,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 
 ###EOD Stats:
 * 5 Requests, 48.8kb Transferred
+* 14 Commits
 * 7 files have changed and there have been 121 additions and 0 deletions.
 
 ###Timespent:
