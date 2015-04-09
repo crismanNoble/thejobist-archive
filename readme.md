@@ -1,6 +1,6 @@
 #The Jobist
 
-A (100 days project)[http://thegreatdiscontent.com/100days]. #100daysofthejobist
+A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 
 ##Project Goals
 * Create an friendly list of job search sites.
