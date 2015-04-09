@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/crismanNoble/thejobist/issues"
   },
-  "homepage": "http://thejobist.com"
+  "homepage": "http://thejobist.com",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
