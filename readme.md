@@ -3,7 +3,7 @@
 A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 
 ##Project Goals
-* Create an friendly list of job search sites.
+* Create a friendly list of job search sites.
 * Allow community input and curation.
 * Match people to job openings
 
