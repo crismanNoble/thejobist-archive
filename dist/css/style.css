@@ -1,0 +1,19 @@
+html {
+  color: 'blue';
+}
+
+.flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 50px) {
+  .combine {
+    width: 20px;
+  }
+
+  .flex {
+    width: 20px;
+  }
+}

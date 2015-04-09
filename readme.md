@@ -8,7 +8,19 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Match people to job openings
 
 ===
+##Day 2
+###Progress:
+* Created a Gruntfile
+* Configured Less + plugins
 
+###Today's progress brought to you By:
+* https://www.npmjs.com/package/load-grunt-tasks
+* https://www.npmjs.com/package/grunt-contrib-less
+* http://lesscss.org/
+* https://www.npmjs.com/package/less-plugin-autoprefix
+* https://github.com/bassjobsen/less-plugin-group-css-media-queries
+
+===
 ##Day 1
 
 ###Progress:
@@ -41,7 +53,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 ###Timespent:
 1hr
 
-###Today's Progress brought to you by
+###Today's progress brought to you by
 * http://daringfireball.net/projects/markdown/
 * https://www.npmjs.com/
 * https://html5boilerplate.com/
