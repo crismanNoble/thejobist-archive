@@ -8,13 +8,10 @@
 * Setup a subdomain, http://100.thejobist.com
 
 ###Plan:
-Going to rebuild the site starting with nothing but the existing data.json.
-
-Take a screenshot each day of the output.
-
-Write a short postmortem of each day.
-
-Minor rev each day
+* Going to rebuild the site starting with nothing but the existing data.json.
+* Take a screenshot each day of the output.
+* Write a short postmortem of each day.
+* Minor rev each day
 
 ###Next Steps:
 Setup grunt
