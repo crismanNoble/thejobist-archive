@@ -15,6 +15,9 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Setup a github repo, https://github.com/crismanNoble/thejobist
 * Setup a package.json
 * Setup a subdomain, http://100.thejobist.com
+* Setup a simple index file base on HTML5BP code
+* Integrated Google analytics
+* Spent too much time in the readme
 
 ###Plan:
 * Going to rebuild the site starting with nothing but the existing data.json.
@@ -26,11 +29,12 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Setup grunt
 * Create an ftp task to sync the dist folder
 * Create a pageres task to capture progress visually daily.
+* Build `/dist` from a `/src`
 
 ###EOD Stats:
 * 5 Requests, 48.8kb Transferred
-* 14 Commits
-* 7 files have changed and there have been 121 additions and 0 deletions.
+* 15 Commits
+* 7 files have changed and there have been 125 additions and 0 deletions.
 
 ###Timespent:
 1hr
