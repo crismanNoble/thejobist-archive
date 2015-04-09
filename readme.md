@@ -12,13 +12,19 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 ###Progress:
 * Created a Gruntfile
 * Configured Less + plugins
+* Created a dev and prod task
 
 ###Today's progress brought to you By:
 * https://www.npmjs.com/package/load-grunt-tasks
 * https://www.npmjs.com/package/grunt-contrib-less
 * http://lesscss.org/
 * https://www.npmjs.com/package/less-plugin-autoprefix
+* https://github.com/postcss/autoprefixer
 * https://github.com/bassjobsen/less-plugin-group-css-media-queries
+* https://www.npmjs.com/package/less-plugin-clean-css
+* https://github.com/jakubpawlowicz/clean-css
+* https://www.npmjs.com/package/grunt-compile-handlebars
+* http://handlebarsjs.com/
 
 ===
 ##Day 1

@@ -3,6 +3,7 @@ html {
 }
 
 .flex {
+  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -11,6 +12,8 @@ html {
 @media (max-width: 50px) {
   .combine {
     width: 20px;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
   }
 
   .flex {
