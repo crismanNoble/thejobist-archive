@@ -8,13 +8,29 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Match people to job openings
 
 ===
+#Day 3
+###Progress:
+* ftp deploy via grunt, yay.
+* setup a watch task
+* created a pageres task to document the fun
+
+###Today's progress brought to you by:
+* https://www.npmjs.com/package/grunt-ftp-deploy
+* https://www.npmjs.com/package/grunt-contrib-watch
+* https://www.npmjs.com/package/grunt-pageres
+* https://github.com/sindresorhus/pageres
+
+###Plan:
+* build out the multitude of pages based the data.json file
+
+===
 ##Day 2
 ###Progress:
 * Created a Gruntfile
 * Configured Less + plugins
 * Created a dev and prod task
 
-###Today's progress brought to you By:
+###Today's progress brought to you by:
 * https://www.npmjs.com/package/load-grunt-tasks
 * https://www.npmjs.com/package/grunt-contrib-less
 * http://lesscss.org/
