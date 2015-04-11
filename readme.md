@@ -6,6 +6,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Create a friendly list of job search sites.
 * Allow community input and curation.
 * Match people to job openings
+
 ===
 #Day 3
 ###Progress:
@@ -21,6 +22,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 
 ###Plan:
 * build out the multitude of pages based the data.json file
+
 ===
 ##Day 2
 ###Progress:
@@ -39,6 +41,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * https://github.com/jakubpawlowicz/clean-css
 * https://www.npmjs.com/package/grunt-compile-handlebars
 * http://handlebarsjs.com/
+
 ===
 ##Day 1
 
@@ -81,6 +84,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * https://nodejs.org/
 * http://www.git-scm.com/
 * https://github.com/
+
 ===
 ##Background
 I had this idea long before I became a "professional" web developer, because I was looking for a web development role. Fast forward 3 years, I have a comfortable job making websites for a living. I have always been inspired by the idea of starting a "[Make something cool everyday.](https://www.behance.net/gallery/MSCED/976639)" type project. Plus [Michael Beruit is awesome](https://thegreatdiscontent.com/interview/michael-bierut) and assigns students to have [their own 100 days project](http://designobserver.com/feature/five-years-of-100-days/24678) which turns out amazing work. Plus I was thinking about how I have not been working on sideprojects. All of this culminated in my commitment to commit at least one commit on the jobist for the next 100 days. If I can't be bothered to get excited about the project beyond this experiment, then I give up on the jobist and will let the domain expire. If it is still awesome, I will keep it forever.
