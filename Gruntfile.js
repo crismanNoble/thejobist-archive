@@ -1,6 +1,8 @@
 module.exports = function(grunt) {
+  var _ = require('lodash');
 
   require('load-grunt-tasks')(grunt);
+
 
   var less_autoprefix_plugin = require('less-plugin-autoprefix'),
     less_autoprefix = new less_autoprefix_plugin({browsers: ["> 1%", "last 2 versions"]}),
@@ -11,6 +13,35 @@ module.exports = function(grunt) {
   var today = new Date().getTime();
   var started = new Date('4/8/2015').getTime();
   var elapsedDays = Math.floor((today - started)/(24*60*60*1000) + 1);
+
+
+  var sites = grunt.file.readJSON('src/config/data.json');
+  var templateTaskTpl = {
+    'helpers': 'src/markup/helpers/*.js',
+    'partials': 'src/markup/partials/*.handlebars'
+  };
+
+  var pagesToBuild = {
+    // 'development': {
+    //     template: 'src/markup/pages/index.handlebars',
+    //     output: 'dist/index.html',
+    //     partials: 'src/markup/partials/**/*.handlebars'
+    //   }
+    };
+
+  _.each(sites,function(d,i){
+    var slug = d.title.toLowerCase().replace(/\s/g, '-'); //needs to be a lot smarter, not sure how just yet
+    console.log(slug);
+    var taskObj = _.extend({
+      'template': 'src/markup/pages/index.handlebars',//need to change this to the 'post type'
+      'templateData' : d,
+      'output' : 'dist/'+slug+'/index.html',
+    },templateTaskTpl);
+
+    pagesToBuild[slug] = taskObj;
+
+  });
+
 
   grunt.initConfig({
 
@@ -45,17 +76,7 @@ module.exports = function(grunt) {
 
     },
 
-    'compile-handlebars': {
-
-      development: {
-        template: 'src/markup/pages/**/*.handlebars',
-        templateData: 'test/fixtures/deep/**/*.json',
-        output: 'dist/**/*.html',
-        //helpers: 'test/helpers/**/*.js',
-        partials: 'src/markup/partials/**/*.handlebars'
-      }
-
-    },
+    'compile-handlebars': pagesToBuild,
 
     'ftp-deploy': {
       development: {
