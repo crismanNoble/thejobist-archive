@@ -22,12 +22,18 @@ module.exports = function(grunt) {
   };
 
   var pagesToBuild = {
-    // 'development': {
-    //     template: 'src/markup/pages/index.handlebars',
-    //     output: 'dist/index.html',
-    //     partials: 'src/markup/partials/**/*.handlebars'
-    //   }
+    'index': {
+        template: 'src/markup/pages/index.handlebars',
+        output: 'dist/index.html',
+        partials: 'src/markup/partials/**/*.handlebars'
+      }
     };
+
+  pagesToBuild['index'] = _.extend({
+      'template': 'src/markup/pages/index.handlebars',//need to change this to the 'post type'
+      'templateData' : {},
+      'output' : 'dist/index.html',
+    },templateTaskTpl);
 
   _.each(sites,function(d,i){
     var slug = d.title.toLowerCase().replace(/\s/g, '-'); //needs to be a lot smarter, not sure how just yet
