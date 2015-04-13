@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     },templateTaskTpl);
 
   _.each(sites,function(d,i){
-    var slug = d.title.toLowerCase().replace(/\s/g, '-'); //needs to be a lot smarter, not sure how just yet
+    var slug = d.title.toLowerCase().replace(/[^\w]/gi,'-'); //needs to be a lot smarter, not sure how just yet
     console.log(slug);
     var taskObj = _.extend({
       'template': 'src/markup/pages/index.handlebars',//need to change this to the 'post type'
@@ -113,12 +113,15 @@ module.exports = function(grunt) {
           filename: 'day'+elapsedDays
         }
       }
-    }
+    },
+    clean: {
+      development: ["dist"],
+    },
 
 
   });
 
-  grunt.registerTask('development', ['less:development','compile-handlebars:development']);
+  grunt.registerTask('development', ['less:development','compile-handlebars']);
   grunt.registerTask('production', ['less:production','compile-handlebars']);
 
   grunt.registerTask('push',['development','ftp-deploy:development','pageres:onehundred']);
