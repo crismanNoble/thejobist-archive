@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('development', ['less:development','compile-handlebars']);
+  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars']);
   grunt.registerTask('production', ['less:production','compile-handlebars']);
 
   grunt.registerTask('push',['development','ftp-deploy:development','pageres:onehundred']);
