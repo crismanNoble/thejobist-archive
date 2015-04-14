@@ -30,18 +30,17 @@ module.exports = function(grunt) {
     };
 
   pagesToBuild['index'] = _.extend({
-      'template': 'src/markup/pages/index.handlebars',//need to change this to the 'post type'
+      'template': 'src/markup/pages/index.handlebars',
       'templateData' : {},
       'output' : 'dist/index.html',
     },templateTaskTpl);
 
   _.each(sites,function(d,i){
-    var slug = d.title.toLowerCase().replace(/[^\w]/gi,'-'); //needs to be a lot smarter, not sure how just yet
-    console.log(slug);
+    var slug = d.title.toLowerCase().replace(/[^\w]/gi,'-');
     var taskObj = _.extend({
-      'template': 'src/markup/pages/index.handlebars',//need to change this to the 'post type'
+      'template': 'src/markup/pages/subpage.handlebars',
       'templateData' : d,
-      'output' : 'dist/'+slug+'/index.html',
+      'output' : 'dist/sites/'+slug+'/index.html',
     },templateTaskTpl);
 
     pagesToBuild[slug] = taskObj;
@@ -53,8 +52,9 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    less: {
+    //todo: js files
 
+    less: {
       development: {
         options: {
           plugins: [
@@ -118,12 +118,26 @@ module.exports = function(grunt) {
       development: ["dist"],
     },
 
+    shell: {
+      localServer: {
+        command: 'http-server ./dist -p1337 -o -s'
+      }
+    },
+
+    copy: {
+      data: {
+        src: 'src/config/data.json',
+        dest: 'dist/data.json'
+      },
+    }
+
 
   });
 
-  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars']);
+  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copy:data']);
   grunt.registerTask('production', ['less:production','compile-handlebars']);
 
+  grunt.registerTask('server',['development','shell:localServer']);
   grunt.registerTask('push',['development','ftp-deploy:development','pageres:onehundred']);
 
   grunt.registerTask('default', ['development']);
