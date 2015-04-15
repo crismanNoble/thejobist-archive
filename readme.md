@@ -8,7 +8,7 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Match people to job openings
 
 ===
-#Day 3
+#Day 7
 ###Progress:
 * Pretty solid grunt build
 * Sites now have their own subpages in the /sites/ folder
