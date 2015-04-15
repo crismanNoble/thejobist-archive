@@ -1,0 +1,24 @@
+{
+  "name": "thejobist",
+  "version": "0.0.1",
+  "homepage": "http://thejobist.com",
+  "authors": [
+    "Cris Noble <cris@crisnoble.com>"
+  ],
+  "description": "a job board search site",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  },
+  "devDependencies": {
+    "handlebars": "~3.0.0"
+  }
+}

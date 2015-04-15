@@ -4,3 +4,4 @@
 node_modules
 .ftppass
 *.sublime-*
+bower_components

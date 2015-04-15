@@ -129,14 +129,43 @@ module.exports = function(grunt) {
         src: 'src/config/data.json',
         dest: 'dist/data.json'
       },
-    }
+      jquery: {
+        src: 'bower_components/jquery/dist/jquery.min.js',
+        dest: 'dist/js/lib/jquery.min.js'
+      },
+      handlebars: {
+        src: 'bower_components/handlebars/handlebars.min.js',
+        dest: 'dist/js/lib/handlebars.runtime.min.js'
+      }
+    },
 
+    uglify: {
+      footer: {
+        options: {
+          beautify: true
+        },
+        files: {
+          'dist/js/footer.js': ['dist/js/lib/*.js','src/js/app.js','src/js/analytics.js']
+        }
+      },
+      libs: {
+        options: {
+          mangle: false
+        },
+        files: {
+          'dist/js/libs.js': ['dist/js/lib/*.js']
+        }
+      }
+    }
 
   });
 
-  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copy:data']);
-  grunt.registerTask('production', ['less:production','compile-handlebars']);
+  //building
+  grunt.registerTask('copyLibs', ['copy:jquery','copy:handlebars']);
+  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copyLibs','uglify','copy:data']);
+  //grunt.registerTask('production', ['less:production','compile-handlebars']); //need to rethink this strategy, may want to minify css after build instead of during
 
+  //helpers
   grunt.registerTask('server',['development','shell:localServer']);
   grunt.registerTask('push',['development','ftp-deploy:development','pageres:onehundred']);
 

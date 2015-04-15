@@ -10,6 +10,28 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 ===
 #Day 3
 ###Progress:
+* Pretty solid grunt build
+* Sites now have their own subpages in the /sites/ folder
+
+###Today's progress brought to you by:
+* http://handlebarsjs.com/
+* http://bower.io/
+* http://civilmusic.bandcamp.com/album/heartland-lp <- calling it: best album of 2015
+
+###Plan:
+* build sites into index page on build, not run
+* build out a CRUD
+* decide if all js should be one gigantic thing or nah
+* think about removing dependancy on jquery and handlebars
+* think about using normalize
+
+===
+#Days 4-6
+* small amounts of grunt work
+
+===
+#Day 3
+###Progress:
 * ftp deploy via grunt, yay.
 * setup a watch task
 * created a pageres task to document the fun
