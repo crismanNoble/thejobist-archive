@@ -136,6 +136,10 @@ module.exports = function(grunt) {
       handlebars: {
         src: 'bower_components/handlebars/handlebars.min.js',
         dest: 'dist/js/lib/handlebars.runtime.min.js'
+      },
+      api: {
+        src: 'src/markup/api/add.php',
+        dest: 'dist/api/add/index.php'
       }
     },
 
@@ -162,7 +166,8 @@ module.exports = function(grunt) {
 
   //building
   grunt.registerTask('copyLibs', ['copy:jquery','copy:handlebars']);
-  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copyLibs','uglify','copy:data']);
+  grunt.registerTask('copyAll',['copyLibs','copy:data','copy:api']);
+  grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copyAll','uglify']);
   //grunt.registerTask('production', ['less:production','compile-handlebars']); //need to rethink this strategy, may want to minify css after build instead of during
 
   //helpers
