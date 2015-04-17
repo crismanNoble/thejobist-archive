@@ -6,4 +6,6 @@ $url=$_POST['url'];
 $description=$_POST['description'];
 $tags=$_POST['tags'];
 
+echo "thanks";
+
 ?>
