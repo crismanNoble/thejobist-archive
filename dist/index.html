@@ -22,12 +22,20 @@
   <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-    <!-- Add your site or application content here -->
-    <h1>The Jobist</h1>
-    <p>Here is a list of all the job search sites I know about so far:</p>
-    <p><a href="mailto:cris@crisnoble.com">Am I missing any? Email me and I'll add it to the list!</a></p>
-    <p><a href="https://github.com/crismanNoble/thejobist">huh?</a></p>
-    <div id="dump"></div>
+<!-- Add your site or application content here -->
+<h1>The Jobist</h1>
+<p>Here is a list of all the job search sites I know about so far:</p>
+<p><a href="mailto:cris@crisnoble.com">Am I missing any? Email me and I'll add it to the list!</a></p>
+<p><a href="https://github.com/crismanNoble/thejobist">huh?</a></p>
+<form id="add-site">
+	<h2>Submit a new site</h2>
+	<input type="text" placeholder="title" name="site-title" id="site-title"/>
+	<input type="text" placeholder="url" name="site-url" id="site-url"/>
+	<input type="text" placeholder="description" name="site-description" id="site-description"/>
+	<input type="text" placeholder="tags" name="site-tags" id="site-tags"/>
+	<input type="submit" value="submit new site" id="site-submit">
+</form>
+<div id="dump"></div>
 
 
   <script src="/js/footer.js"></script>

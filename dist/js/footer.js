@@ -1,3 +1,13 @@
+function formatDate(a) {
+    a || (a = new Date());
+    var b = a.getFullYear(), c = a.getMonth() + 1;
+    13 == c && (c = 1);
+    var d = a.getDate(), e = b.toString() + "-" + c.toString() + "-" + d.toString(), f = a.getHours(), g = a.getMinutes();
+    10 > g && (g = "0" + g.toString());
+    var h = f.toString() + ":" + g.toString();
+    return e + " " + h;
+}
+
 !function(a, b) {
     "function" == typeof define && define.amd ? define([], b) : "object" == typeof exports ? module.exports = b() : a.Handlebars = b();
 }(this, function() {
@@ -5791,6 +5801,23 @@
             var f = b(d);
             $dump.append(f);
         }
+    }), $("#site-submit").click(function(a) {
+        a.preventDefault();
+        var b = {
+            title: $("#site-title").val(),
+            url: $("#site-url").val(),
+            description: $("#site-description").val(),
+            tags: $("#site-tags").val(),
+            timestamp: formatDate(),
+            page: window.location.href
+        };
+        console.log(b), $.ajax({
+            type: "POST",
+            data: b,
+            url: "http://api.thejobist.com/sites/add/"
+        }).always(function(a) {
+            console.log(a);
+        });
     });
 }), function(a, b, c, d, e, f, g) {
     a.GoogleAnalyticsObject = e, a[e] = a[e] || function() {

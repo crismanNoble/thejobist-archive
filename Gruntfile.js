@@ -137,21 +137,25 @@ module.exports = function(grunt) {
         src: 'bower_components/handlebars/handlebars.min.js',
         dest: 'dist/js/lib/handlebars.runtime.min.js'
       },
-      add: {
-        src: 'src/markup/api/add.php',
-        dest: 'dist/api/add/index.php'
+      addSite: {
+        src: 'src/markup/api/sites/add.php',
+        dest: 'dist/api/sites/add/index.php'
       },
-      update: {
-        src: 'src/markup/api/update.php',
-        dest: 'dist/api/update/index.php'
+      updateSite: {
+        src: 'src/markup/api/sites/update.php',
+        dest: 'dist/api/sites/update/index.php'
       },
-      remove: {
-        src: 'src/markup/api/remove.php',
-        dest: 'dist/api/remove/index.php'
+      removeSite: {
+        src: 'src/markup/api/sites/remove.php',
+        dest: 'dist/api/sites/remove/index.php'
       },
-      read: {
-        src: 'src/markup/api/all.php',
-        dest: 'dist/api/all/index.php'
+      readSites: {
+        src: 'src/markup/api/sites/all.php',
+        dest: 'dist/api/sites/all/index.php'
+      },
+      connection: {
+        src: 'src/markup/api/connection.php',
+        dest: 'dist/api/connection.php'
       }
     },
 
@@ -178,7 +182,8 @@ module.exports = function(grunt) {
 
   //building
   grunt.registerTask('copyLibs', ['copy:jquery','copy:handlebars']);
-  grunt.registerTask('copyApi',['copy:add','copy:update','copy:remove','copy:read']);
+  grunt.registerTask('copyApiSite',['copy:addSite','copy:updateSite','copy:removeSite','copy:readSites'])
+  grunt.registerTask('copyApi',['copyApiSite','copy:connection']);
   grunt.registerTask('copyAll',['copyLibs','copy:data','copyApi']);
   grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copyAll','uglify']);
   //grunt.registerTask('production', ['less:production','compile-handlebars']); //need to rethink this strategy, may want to minify css after build instead of during

@@ -5,3 +5,5 @@ node_modules
 .ftppass
 *.sublime-*
 bower_components
+src/markup/api/connection.php
+dist/**/connection.php
