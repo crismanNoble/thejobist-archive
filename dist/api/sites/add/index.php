@@ -1,7 +1,6 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-
+include '../../cors.php';
 include '../../connection.php'; //exposes $db
 
 //core data
@@ -11,33 +10,25 @@ $description = $_POST['description'];
 $tags = $_POST['tags'];
 $added = $_POST['timestamp'];
 
-echo $title;
-echo 'was recieved';
 //for detecting spammers
 $ts = $_SERVER['REQUEST_TIME'];
 $ip = $_SERVER['REMOTE_ADDR'];
 $ua = $_SERVER['HTTP_USER_AGENT'];
 $rp = $_POST['page'];
 
-echo 'got the data';
-
 if($title && $url && $added){
-	echo '(in the think of it)';
 	$sql = "INSERT INTO `sites` (`title`, `url`, `description`, `added`, `tags`) VALUES ('$title', '$url', '$description', '$added', '$tags')";
 	//abstract this into a do sql?
 	//include 'run_sql.php'; //executes the query cleans up connection
-	echo '(made the query)';
 	$db->query($sql);
-	echo '(ran the query)';
 	if($db->affected_rows){
 		echo print_r(affected_rows);
-		echo "thanks, the query worked";
+		echo "Than you for your submission.";
 	} else {
-		echo "query error, no rows affected";
+		echo "Sorry, there has been an error.";
 	}
 
 	$id = mysqli_insert_id($db);
-	echo 'insertid is:'.$id;
 }
 
 $db->close();

@@ -99,7 +99,7 @@ module.exports = function(grunt) {
 
     watch: {
       src: {
-        files: ['src/**/*.js', 'src/**/*.less', 'src/**/*.handlebars'],
+        files: ['src/**/*.js', 'src/**/*.less', 'src/**/*.handlebars','src/**/*.php'],
         tasks: ['default']
       }
     },
@@ -153,9 +153,17 @@ module.exports = function(grunt) {
         src: 'src/markup/api/sites/all.php',
         dest: 'dist/api/sites/all/index.php'
       },
-      connection: {
-        src: 'src/markup/api/connection.php',
-        dest: 'dist/api/connection.php'
+      utils: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/markup/',
+            src: 'api/*',
+            dest: 'dist/api/',
+            flatten: true,
+            filter: 'isFile',
+          }
+        ]
       }
     },
 
@@ -183,7 +191,7 @@ module.exports = function(grunt) {
   //building
   grunt.registerTask('copyLibs', ['copy:jquery','copy:handlebars']);
   grunt.registerTask('copyApiSite',['copy:addSite','copy:updateSite','copy:removeSite','copy:readSites'])
-  grunt.registerTask('copyApi',['copyApiSite','copy:connection']);
+  grunt.registerTask('copyApi',['copyApiSite','copy:utils']);
   grunt.registerTask('copyAll',['copyLibs','copy:data','copyApi']);
   grunt.registerTask('development', ['clean:development','less:development','compile-handlebars','copyAll','uglify']);
   //grunt.registerTask('production', ['less:production','compile-handlebars']); //need to rethink this strategy, may want to minify css after build instead of during
