@@ -4,14 +4,15 @@ include '../../cors.php';
 include '../../connection.php'; //exposes $db
 
 $id = $_GET['id'];
+$id = intval($id);
 $approval = $_GET['approved'];
 
-echo 'oh so you want to enable '.$id' huh?';
-
-if($approval) {
-	echo 'it shall be done';
+$sql = "UPDATE `sites` SET `approved` = $approval WHERE `sites`.`index` = $id";
+$db->query($sql);
+if($db->affected_rows){
+	echo "thank you, ".$id.' has been updated.';
 } else {
-	echo 'sorry no can do';
+	echo "sorry, ".$id.' has not been updated';
 }
-
+$db->close();
 ?>

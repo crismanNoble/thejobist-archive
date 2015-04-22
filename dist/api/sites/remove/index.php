@@ -4,7 +4,17 @@ include '../../cors.php';
 include '../../connection.php'; //exposes $db
 
 $id = $_GET['id'];
+$id = intval($id);
 
-echo 'oh so you want to remove '.$id' huh?';
+$sql = "DELETE FROM  `sites` WHERE  `index` = $id";
+
+$db->query($sql);
+if($db->affected_rows){
+	echo "thank you, ".$id.' has been removed.';
+} else {
+	echo "sorry, ".$id.' has not been removed';
+}
+
+$db->close();
 
 ?>
