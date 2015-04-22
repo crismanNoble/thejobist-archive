@@ -33,30 +33,33 @@ if($title && $url && $added){
 
 $db->close();
 
-$to  = "jcnoble2@gmail.com";
+if($id){
+	$to  = "jcnoble2@gmail.com";
 
-// subject
-$subject = 'New site submission for theJobist';
+	// subject
+	$subject = 'New site submission for theJobist';
 
-// message
-$message = '<b>New site idea!</b><br/>';
-$message .='title: '.$title.'<br/>';
-$message .='description: '.$description.'<br/>';
-$message .='url: <a href="'.$url.'">'.$url.'</a><br/>';
-$message .='tags: '.$tags.'<br/>';
-$message .= '<br/><br/>';
-$message .= 'To delete this site from the queue: <a href="http://api.thejobist.com/sites/remove/?id='.$id.'">click here</a><br/>';
-$message .= 'To enable this site: <a href="http://api.thejobist.com/sites/update/?id='.$id.'&approved=1">click here</a><br/>';
+	// message
+	$message = '<b>New site idea!</b><br/>';
+	$message .='title: '.$title.'<br/>';
+	$message .='description: '.$description.'<br/>';
+	$message .='url: <a href="'.$url.'">'.$url.'</a><br/>';
+	$message .='tags: '.$tags.'<br/>';
+	$message .= '<br/><br/>';
+	$message .= 'To delete this site from the queue: <a href="http://api.thejobist.com/sites/remove/?id='.$id.'">click here</a><br/>';
+	$message .= 'To enable this site: <a href="http://api.thejobist.com/sites/update/?id='.$id.'&approved=1">click here</a><br/>';
 
-// To send HTML mail, the Content-type header must be set
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-// Additional headers
-$headers .= 'From: noreply@thejobist.com';
+	// Additional headers
+	$headers .= 'From: noreply@thejobist.com';
 
-// Mail it
-mail($to, $subject, $message, $headers);
+	// Mail it
+	mail($to, $subject, $message, $headers);
+}
+
 
 
 ?>
