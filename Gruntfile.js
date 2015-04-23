@@ -127,7 +127,7 @@ module.exports = function(grunt) {
           dest: 'progress',
           filename: 'day'+elapsedDays
         },
-        onehundred: {
+        admin: {
           options: {
             url: '100.thejobist.com/admin/',
             delay:'1',

@@ -54,8 +54,8 @@ $(document).ready(function(){
   <td>{{index}}</td>
 	<td>{{title}}<br/><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable"/></td>
 	<td>{{url}}<br/><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable"/><a href="{{url}}" target="_blank">see it</a></td>
-	<td>{{description}}<br/><input type="text" value="{{description}}" data-key="url" placeholder="description" class="js-typeable"/></td>
-	<td>{{tags}}<br/><input type="text" value="{{description}}" data-key="url" placeholder="description" class="js-typeable"/></td>
+	<td>{{description}}<br/><input type="text" value="{{description}}" data-key="description" placeholder="description" class="js-typeable"/></td>
+	<td>{{tags}}<br/><input type="text" value="{{tags}}" data-key="tags" placeholder="description" class="js-typeable"/></td>
 	<td>{{added}}</td>
 	<td>{{upvotes}}<br/><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable"/></td>
 	<td>{{approved}}<br/><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable"/></td>

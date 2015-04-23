@@ -18,7 +18,7 @@ if($id){
 		$howmuch = $_POST['howmuch'];
 	}
 
-	if($what == 'aproved' || 'upvotes'){
+	if($what == 'aproved' || $what == 'upvotes'){
 		$sql = "UPDATE `sites` SET `$what` = $howmuch WHERE `sites`.`index` = $id";
 	} else {
 		$sql = "UPDATE `sites` SET `$what` = '$howmuch' WHERE `sites`.`index` = $id";
@@ -26,7 +26,7 @@ if($id){
 	echo $sql;
 
 	$db->query($sql);
-	if($db->affected_rows > 1){
+	if($db->affected_rows){
 		echo "thank you, ".$id.' has been updated.';
 	} else {
 		echo "sorry, ".$id.' has not been updated';
