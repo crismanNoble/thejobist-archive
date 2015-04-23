@@ -79,6 +79,16 @@ $(document).ready(function(){
 	  		e.preventDefault();
 	  		var who = findParent($(this));
 	  		console.log(who);
+	  		if($(this).data('action') == 'remove') {
+	  			//probaly want confirmation here
+	  			$.ajax({
+	  				method : 'GET',
+	  				data : {'id': who},
+	  				url : 'http://api.thejobist.com/sites/remove/'
+	  			}).success(function(d){
+	  				console.log(d);
+	  			});
+	  		}
 
 	  	});
 
@@ -87,6 +97,15 @@ $(document).ready(function(){
 	  		var who = findParent($(this));
 	  		console.log('typed');
 	  		console.log(who);
+	  		var what = $(this).data('key');
+	  		var newVal = $(this).val();
+	  		$.ajax({
+	  				method : 'POST',
+	  				data : {'id': who,'what':what,'howmuch':newVal},
+	  				url : 'http://api.thejobist.com/sites/update/'
+	  			}).success(function(d){
+	  				console.log(d);
+	  			});
 	  	});
   	}
 

@@ -5799,11 +5799,31 @@ function formatDate(a) {
         $(".js-clickable").click(function(a) {
             a.preventDefault();
             var b = findParent($(this));
-            console.log(b);
+            console.log(b), "remove" == $(this).data("action") && $.ajax({
+                method: "GET",
+                data: {
+                    id: b
+                },
+                url: "http://api.thejobist.com/sites/remove/"
+            }).success(function(a) {
+                console.log(a);
+            });
         }), $(".js-typeable").blur(function(a) {
             a.preventDefault();
             var b = findParent($(this));
             console.log("typed"), console.log(b);
+            var c = $(this).data("key"), d = $(this).val();
+            $.ajax({
+                method: "POST",
+                data: {
+                    id: b,
+                    what: c,
+                    howmuch: d
+                },
+                url: "http://api.thejobist.com/sites/update/"
+            }).success(function(a) {
+                console.log(a);
+            });
         });
     }
     $("html").removeClass("no-js");

@@ -222,7 +222,7 @@ module.exports = function(grunt) {
 
   //helpers
   grunt.registerTask('server',['development','shell:localServer']);
-  grunt.registerTask('push',['development','ftp-deploy:development','pageres:onehundred']);
+  grunt.registerTask('push',['development','ftp-deploy:development','pageres']);
 
   grunt.registerTask('default', ['development']);
 
