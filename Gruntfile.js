@@ -14,26 +14,15 @@ module.exports = function(grunt) {
   var started = new Date('4/8/2015').getTime();
   var elapsedDays = Math.floor((today - started)/(24*60*60*1000) + 1);
 
-
+  var normalPages = grunt.file.readJSON('src/config/pages.json');
   var sites = grunt.file.readJSON('src/config/data.json');
+
   var templateTaskTpl = {
     'helpers': 'src/markup/helpers/*.js',
     'partials': 'src/markup/partials/*.handlebars'
   };
 
-  var pagesToBuild = {
-    'index': {
-        template: 'src/markup/pages/index.handlebars',
-        output: 'dist/index.html',
-        partials: 'src/markup/partials/**/*.handlebars'
-      }
-    };
-
-  pagesToBuild['index'] = _.extend({
-      'template': 'src/markup/pages/index.handlebars',
-      'templateData' : {},
-      'output' : 'dist/index.html',
-    },templateTaskTpl);
+  var pagesToBuild = {}; //gets filled with "normal" and "sub" pages
 
   _.each(sites,function(d,i){
     var slug = d.title.toLowerCase().replace(/[^\w]/gi,'-');
@@ -44,6 +33,32 @@ module.exports = function(grunt) {
     },templateTaskTpl);
 
     pagesToBuild[slug] = taskObj;
+
+  });
+
+  _.each(normalPages,function(data,i){
+    d = _.clone(data);
+    d.title = d.pageName;
+    var slug = d.slug;
+    if (slug) {
+      slug = 'dist/'+slug+'/index.html'
+    } else {
+      if (d.slug === false) {
+        slug = 'dist/index.html'
+      } else {
+        console.error('there was no slug, and it is not the root...');
+      }
+    }
+
+    if (slug){
+      taskObj = _.extend({
+        'template':'src/markup/pages/'+d.pageName+'.handlebars',
+        'templateData':d,
+        'output': slug
+      }, templateTaskTpl);
+
+      pagesToBuild[d.pageName] = taskObj;
+    }
 
   });
 

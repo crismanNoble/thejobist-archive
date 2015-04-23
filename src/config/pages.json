@@ -1,0 +1,12 @@
+[
+	{ "pageName" : "home",
+		"slug": false,
+		"title": "The jobist is pretty cool overall",
+		"description": "The jobist helps you find where you should find a job."
+	}, {
+		"pageName" : "admin",
+		"slug" : "admin",
+		"title" : "God Mode",
+		"description" : "if you don't know, now you know."
+	}
+]
