@@ -126,6 +126,15 @@ module.exports = function(grunt) {
           sizes: ['1300x1100'],
           dest: 'progress',
           filename: 'day'+elapsedDays
+        },
+        onehundred: {
+          options: {
+            url: '100.thejobist.com/admin/',
+            delay:'1',
+            sizes: ['1300x1100'],
+            dest: 'progress',
+            filename: 'day'+elapsedDays+'-admin'
+          }
         }
       }
     },

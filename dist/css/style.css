@@ -9,6 +9,12 @@ h1 {
   display: flex;
 }
 
+th,
+td {
+  border: 1px solid grey;
+  padding: 10px;
+}
+
 @media (max-width: 50px) {
   .combine {
     width: 20px;

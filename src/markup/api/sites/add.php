@@ -47,7 +47,7 @@ if($id){
 	$message .='tags: '.$tags.'<br/>';
 	$message .= '<br/><br/>';
 	$message .= 'To delete this site from the queue: <a href="http://api.thejobist.com/sites/remove/?id='.$id.'">click here</a><br/>';
-	$message .= 'To enable this site: <a href="http://api.thejobist.com/sites/update/?id='.$id.'&approved=1">click here</a><br/>';
+	$message .= 'To enable this site: <a href="http://api.thejobist.com/sites/update/?id='.$id.'&what=approved&howmuch=1">click here</a><br/>';
 
 	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";

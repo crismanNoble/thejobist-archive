@@ -1,3 +1,7 @@
+function findParent(a) {
+    return $(a).parent().parent().data("who");
+}
+
 function formatDate(a) {
     a || (a = new Date());
     var b = a.getFullYear(), c = a.getMonth() + 1;
@@ -5791,14 +5795,25 @@ function formatDate(a) {
         return a.$ === _ && (a.$ = Lb), b && a.jQuery === _ && (a.jQuery = Kb), _;
     }, typeof b === za && (a.jQuery = a.$ = _), _;
 }), $(document).ready(function() {
+    function a() {
+        $(".js-clickable").click(function(a) {
+            a.preventDefault();
+            var b = findParent($(this));
+            console.log(b);
+        }), $(".js-typeable").blur(function(a) {
+            a.preventDefault();
+            var b = findParent($(this));
+            console.log("typed"), console.log(b);
+        });
+    }
     $("html").removeClass("no-js");
-    var a = '<div class="site">\n      <h3>{{title}}</h3>\n      <p>via <a href="{{url}}">{{url}}</a></p>\n      <p>{{description}}</p>\n      <p><em>{{tags}}</em></p>\n      <p>votes:{{votes}}</p>\n      <p>more:<a href="{{url}}">{{slug}}</a></p>\n      </div>', b = Handlebars.compile(a);
-    $.getJSON("data.json", function(a) {
+    var b = '<div class="site">\n      <h3>{{title}}</h3>\n      <p>via <a href="{{url}}">{{url}}</a></p>\n      <p>{{description}}</p>\n      <p><em>{{tags}}</em></p>\n      <p>votes:{{votes}}</p>\n      <p>more:<a href="{{url}}">{{slug}}</a></p>\n      </div>', c = Handlebars.compile(b);
+    $("#dump").length > 0 && $.getJSON("data.json", function(a) {
         $dump = $("#dump");
-        for (var c = 0; c < a.length; c++) {
-            var d = a[c], e = d.title.toLowerCase().replace(/[^\w]/gi, "-");
+        for (var b = 0; b < a.length; b++) {
+            var d = a[b], e = d.title.toLowerCase().replace(/[^\w]/gi, "-");
             d.slug = e;
-            var f = b(d);
+            var f = c(d);
             $dump.append(f);
         }
     }), $("#site-submit").click(function(a) {
@@ -5819,6 +5834,17 @@ function formatDate(a) {
             console.log(a);
         });
     });
+    var d = '<tr data-who="{{index}}">\n  <td>{{index}}</td>\n	<td>{{title}}<br/><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable"/></td>\n	<td>{{url}}<br/><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable"/><a href="{{url}}" target="_blank">see it</a></td>\n	<td>{{description}}<br/><input type="text" value="{{description}}" data-key="url" placeholder="description" class="js-typeable"/></td>\n	<td>{{tags}}<br/><input type="text" value="{{description}}" data-key="url" placeholder="description" class="js-typeable"/></td>\n	<td>{{added}}</td>\n	<td>{{upvotes}}<br/><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable"/></td>\n	<td>{{approved}}<br/><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable"/></td>\n	<td><button data-action="remove" class="js-clickable">delete</button></td>\n  </tr>', e = Handlebars.compile(d);
+    if ($("#js-admin_everything").length > 0) {
+        var f = $("#js-admin_everything");
+        $.getJSON("http://api.thejobist.com/sites/all/", function(b) {
+            for (var c = 0; c < b.length; c++) {
+                var d = e(b[c]);
+                f.append(d);
+            }
+            a();
+        });
+    }
 }), function(a, b, c, d, e, f, g) {
     a.GoogleAnalyticsObject = e, a[e] = a[e] || function() {
         (a[e].q = a[e].q || []).push(arguments);

@@ -12,18 +12,19 @@ $(document).ready(function(){
       </div>';
   var siteCard = Handlebars.compile(source);
 
-  $.getJSON('data.json',function(d){
-  	//console.log(d);
-    $dump = $('#dump');
-    for (var i=0; i<d.length; i++){
-    	var context = d[i];
-    	var slug = context.title.toLowerCase().replace(/[^\w]/gi,'-');
-    	context.slug = slug;
-			var html = siteCard(context);
-			$dump.append(html);
-    }
-  });
-
+  if($('#dump').length > 0) {
+  	$.getJSON('data.json',function(d){
+	  	//console.log(d);
+	    $dump = $('#dump');
+	    for (var i=0; i<d.length; i++){
+	    	var context = d[i];
+	    	var slug = context.title.toLowerCase().replace(/[^\w]/gi,'-');
+	    	context.slug = slug;
+				var html = siteCard(context);
+				$dump.append(html);
+	    }
+	  });
+  }
 
   $('#site-submit').click(function(e){
   	e.preventDefault();
@@ -49,7 +50,54 @@ $(document).ready(function(){
 
   });
 
+  var adminRow = '<tr data-who="{{index}}">
+  <td>{{index}}</td>
+	<td>{{title}}<br/><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable"/></td>
+	<td>{{url}}<br/><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable"/><a href="{{url}}" target="_blank">see it</a></td>
+	<td>{{description}}<br/><input type="text" value="{{description}}" data-key="url" placeholder="description" class="js-typeable"/></td>
+	<td>{{tags}}<br/><input type="text" value="{{description}}" data-key="url" placeholder="description" class="js-typeable"/></td>
+	<td>{{added}}</td>
+	<td>{{upvotes}}<br/><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable"/></td>
+	<td>{{approved}}<br/><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable"/></td>
+	<td><button data-action="remove" class="js-clickable">delete</button></td>
+  </tr>';
+
+  var adminRowTemplate = Handlebars.compile(adminRow);
+
+  if($('#js-admin_everything').length > 0) {
+  	var $table = $('#js-admin_everything');
+  	$.getJSON('http://api.thejobist.com/sites/all/',function(d){
+  		for (var i=0; i<d.length; i++){
+  			var html = adminRowTemplate(d[i]);
+				$table.append(html);
+  		}
+  		bindAdminEvents();
+  	});
+
+  	function bindAdminEvents(){
+	  	$('.js-clickable').click(function(e){
+	  		e.preventDefault();
+	  		var who = findParent($(this));
+	  		console.log(who);
+
+	  	});
+
+	  	$('.js-typeable').blur(function(e){
+	  		e.preventDefault();
+	  		var who = findParent($(this));
+	  		console.log('typed');
+	  		console.log(who);
+	  	});
+  	}
+
+
+  }
+
 });
+
+function findParent(who){
+	return $(who).parent().parent().data('who');
+}
 
 function formatDate(dateObj) {
 	if(!dateObj){dateObj = new Date();}
