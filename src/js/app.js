@@ -2,14 +2,16 @@ $(document).ready(function(){
 
 	$('html').removeClass('no-js');
 
-	var source   = '<div class="site">
-      <h3>{{title}}</h3>
-      <p>via <a href="{{url}}">{{url}}</a></p>
+	var source   = '<div class="card">
+      <div class="card--header"><h3 class="card--heading">{{title}}</h3>
+      <h3 class="card--heading_sub">via <a href="{{url}}">{{url}}</a></h3>
+      </div>
+      <div class="card--body"
       <p>{{description}}</p>
       <p><em>{{tags}}</em></p>
       <p>votes:{{votes}}</p>
       <p>more:<a href="{{url}}">{{slug}}</a></p>
-      </div>';
+      </div></div>';
   var siteCard = Handlebars.compile(source);
 
   if($('#dump').length > 0) {
@@ -50,16 +52,16 @@ $(document).ready(function(){
 
   });
 
-  var adminRow = '<tr data-who="{{index}}">
-  <td>{{index}}</td>
-	<td>{{title}}<br/><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable"/></td>
-	<td>{{url}}<br/><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable"/><a href="{{url}}" target="_blank">see it</a></td>
-	<td>{{description}}<br/><input type="text" value="{{description}}" data-key="description" placeholder="description" class="js-typeable"/></td>
-	<td>{{tags}}<br/><input type="text" value="{{tags}}" data-key="tags" placeholder="description" class="js-typeable"/></td>
-	<td>{{added}}</td>
-	<td>{{upvotes}}<br/><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable"/></td>
-	<td>{{approved}}<br/><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable"/></td>
-	<td><button data-action="remove" class="js-clickable">delete</button></td>
+  var adminRow = '<tr data-who="{{index}}" class="table--row">
+  <td class="table--cell">{{index}}</td>
+	<td class="table--cell table--editable"><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable table--editor"/></td>
+	<td class="table--cell table--editable"><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable table--editor"/></td>
+	<td class="table--cell table--editable"><input type="text" value="{{description}}" data-key="description" placeholder="description" class="js-typeable table--editor"/></td>
+	<td class="table--cell table--editable"><input type="text" value="{{tags}}" data-key="tags" placeholder="description" class="js-typeable table--editor"/></td>
+	<td class="table--cell">{{added}}</td>
+	<td class="table--cell table--editable"><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable table--editor table--editor_small"/></td>
+	<td class="table--cell table--editable"><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable table--editor table--editor_small"/></td>
+	<td class="table--cell"><button data-action="remove" class="js-clickable">delete</button></td>
   </tr>';
 
   var adminRowTemplate = Handlebars.compile(adminRow);

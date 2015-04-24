@@ -5827,7 +5827,7 @@ function formatDate(a) {
         });
     }
     $("html").removeClass("no-js");
-    var b = '<div class="site">\n      <h3>{{title}}</h3>\n      <p>via <a href="{{url}}">{{url}}</a></p>\n      <p>{{description}}</p>\n      <p><em>{{tags}}</em></p>\n      <p>votes:{{votes}}</p>\n      <p>more:<a href="{{url}}">{{slug}}</a></p>\n      </div>', c = Handlebars.compile(b);
+    var b = '<div class="card">\n      <div class="card--header"><h3 class="card--heading">{{title}}</h3>\n      <h3 class="card--heading_sub">via <a href="{{url}}">{{url}}</a></h3>\n      </div>\n      <div class="card--body"\n      <p>{{description}}</p>\n      <p><em>{{tags}}</em></p>\n      <p>votes:{{votes}}</p>\n      <p>more:<a href="{{url}}">{{slug}}</a></p>\n      </div></div>', c = Handlebars.compile(b);
     $("#dump").length > 0 && $.getJSON("data.json", function(a) {
         $dump = $("#dump");
         for (var b = 0; b < a.length; b++) {
@@ -5854,7 +5854,7 @@ function formatDate(a) {
             console.log(a);
         });
     });
-    var d = '<tr data-who="{{index}}">\n  <td>{{index}}</td>\n	<td>{{title}}<br/><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable"/></td>\n	<td>{{url}}<br/><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable"/><a href="{{url}}" target="_blank">see it</a></td>\n	<td>{{description}}<br/><input type="text" value="{{description}}" data-key="description" placeholder="description" class="js-typeable"/></td>\n	<td>{{tags}}<br/><input type="text" value="{{tags}}" data-key="tags" placeholder="description" class="js-typeable"/></td>\n	<td>{{added}}</td>\n	<td>{{upvotes}}<br/><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable"/></td>\n	<td>{{approved}}<br/><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable"/></td>\n	<td><button data-action="remove" class="js-clickable">delete</button></td>\n  </tr>', e = Handlebars.compile(d);
+    var d = '<tr data-who="{{index}}" class="table--row">\n  <td class="table--cell">{{index}}</td>\n	<td class="table--cell table--editable"><input type="text" value="{{title}}" data-key="title" placeholder="title" class="js-typeable table--editor"/></td>\n	<td class="table--cell table--editable"><input type="text" value="{{url}}" data-key="url" placeholder="url" class="js-typeable table--editor"/></td>\n	<td class="table--cell table--editable"><input type="text" value="{{description}}" data-key="description" placeholder="description" class="js-typeable table--editor"/></td>\n	<td class="table--cell table--editable"><input type="text" value="{{tags}}" data-key="tags" placeholder="description" class="js-typeable table--editor"/></td>\n	<td class="table--cell">{{added}}</td>\n	<td class="table--cell table--editable"><input type="text" value="{{upvotes}}" data-key="upvotes" placeholder="upvotes" class="js-typeable table--editor table--editor_small"/></td>\n	<td class="table--cell table--editable"><input type="text" value="{{approved}}" data-key="approved" placeholder="approved (0 or 1)" class="js-typeable table--editor table--editor_small"/></td>\n	<td class="table--cell"><button data-action="remove" class="js-clickable">delete</button></td>\n  </tr>', e = Handlebars.compile(d);
     if ($("#js-admin_everything").length > 0) {
         var f = $("#js-admin_everything");
         $.getJSON("http://api.thejobist.com/sites/all/", function(b) {

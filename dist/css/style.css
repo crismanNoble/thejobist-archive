@@ -1,28 +1,131 @@
-h1 {
-  color: purple;
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
 }
 
-.flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+html,
+body {
+  margin: 0;
+  background: #eee;
 }
 
-th,
-td {
-  border: 1px solid grey;
-  padding: 10px;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-@media (max-width: 50px) {
-  .combine {
-    width: 20px;
-    -webkit-transition: -webkit-transform 1s;
-    transition: transform 1s;
-  }
+body,
+input {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #212121;
+}
 
-  .flex {
-    width: 20px;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.wrapper {
+  padding: 20px;
+}
+
+.table {
+  border-spacing: 0;
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.table--header {
+  height: 56px;
+  color: #616161;
+}
+
+.table--heading {
+  font-weight: 300;
+  text-align: left;
+  padding: 10px 15px 10px 5px;
+  border-bottom: 1px solid #616161;
+}
+
+.table--cell {
+  height: 40px;
+  border-bottom: 1px solid #616161;
+  padding: 10px 15px 10px 5px;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table--editable {
+  padding: 0;
+}
+
+.table--editable:hover {
+  border-bottom: 1px solid #2196f3;
+}
+
+.table--editable:focus {
+  border-bottom: 1px solid #2196f3;
+}
+
+.table--editor {
+  border: none;
+  margin: 0;
+  font-size: 1.6rem;
+  height: 40px;
+  border-bottom: 1px solid transparent;
+  padding: 0 15px 0 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table--editor:hover {
+  border-bottom: 1px solid #2196f3;
+}
+
+.table--editor:focus {
+  outline: none;
+  border-bottom: 1px solid #2196f3;
+}
+
+.table--editor_small {
+  max-width: 50px;
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  background-color: white;
+  margin-top: 15px;
+}
+
+.card--header {
+  padding: 24px 16px 16px;
+}
+
+.card--heading {
+  font-size: 24px;
+}
+
+.card--heading_sub {
+  padding-top: 8px;
+  font-size: 1.2rem;
+  color: #bdbdbd;
+}
+
+.card--body {
+  padding: 0 16px 16px;
 }
