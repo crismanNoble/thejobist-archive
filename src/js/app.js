@@ -6,11 +6,12 @@ $(document).ready(function(){
       <div class="card--header"><h3 class="card--heading">{{title}}</h3>
       <h3 class="card--heading_sub">via <a href="{{url}}">{{url}}</a></h3>
       </div>
-      <div class="card--body"
-      <p>{{description}}</p>
+
+      <div class="card--body">
+      <p>{{description}}<a href="{{slug}}">read more</a></p>
       <p><em>{{tags}}</em></p>
       <p>votes:{{votes}}</p>
-      <p>more:<a href="{{url}}">{{slug}}</a></p>
+
       </div></div>';
   var siteCard = Handlebars.compile(source);
 

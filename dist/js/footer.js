@@ -5827,7 +5827,7 @@ function formatDate(a) {
         });
     }
     $("html").removeClass("no-js");
-    var b = '<div class="card">\n      <div class="card--header"><h3 class="card--heading">{{title}}</h3>\n      <h3 class="card--heading_sub">via <a href="{{url}}">{{url}}</a></h3>\n      </div>\n      <div class="card--body"\n      <p>{{description}}</p>\n      <p><em>{{tags}}</em></p>\n      <p>votes:{{votes}}</p>\n      <p>more:<a href="{{url}}">{{slug}}</a></p>\n      </div></div>', c = Handlebars.compile(b);
+    var b = '<div class="card">\n      <div class="card--header"><h3 class="card--heading">{{title}}</h3>\n      <h3 class="card--heading_sub">via <a href="{{url}}">{{url}}</a></h3>\n      </div>\n\n      <div class="card--body">\n      <p>{{description}}<a href="{{slug}}">read more</a></p>\n      <p><em>{{tags}}</em></p>\n      <p>votes:{{votes}}</p>\n\n      </div></div>', c = Handlebars.compile(b);
     $("#dump").length > 0 && $.getJSON("data.json", function(a) {
         $dump = $("#dump");
         for (var b = 0; b < a.length; b++) {
