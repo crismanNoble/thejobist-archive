@@ -8,7 +8,7 @@ $(document).ready(function(){
       </div>
 
       <div class="card--body">
-      <p>{{description}}<a href="{{slug}}">read more</a></p>
+      <p>{{description}}<a href="/sites/{{slug}}">read more</a></p>
       <p><em>{{tags}}</em></p>
       <p>votes:{{votes}}</p>
 
