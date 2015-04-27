@@ -6,6 +6,13 @@ A [100 days project](http://thegreatdiscontent.com/100days). #100daysofthejobist
 * Create a friendly list of job search sites.
 * Allow community input and curation.
 * Match people to job openings
+===
+#Day 17
+###Progress:
+feature decision day.
+
+###Plan:
+outline features somewhere, like a roadmap? Via Github issues? Via feathub?
 
 ===
 #Day 7
